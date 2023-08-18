@@ -12,6 +12,11 @@
   </parent>
   <name>petclinic</name>
 
+  <scm>
+	  <connection>scm:git:ssh://git@github.com/piorkowskim/spring-petclinic-maven.git</connection>
+	  <developerConnection>scm:git:ssh://git@github.com/piorkowskim/spring-petclinic-maven.git</developerConnection>
+	  <url>https://github.com/piorkowskim/spring-petclinic-maven</url>
+  </scm>
   <properties>
 
     <!-- Generic properties -->
@@ -34,6 +39,14 @@
     <spring-format.version>0.0.39</spring-format.version>
 
   </properties>
+
+  <distributionManagement>
+	  <repository>
+		  <id>github</id>
+		  <name>petclinic</name>
+		  <url>https://github.com/piorkowskim/spring-petclinic-maven</url>
+	  </repository>
+  </distributionManagement>
 
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
@@ -153,7 +166,12 @@
   </dependencyManagement>
 
   <build>
-    <plugins>
+   <plugins>
+      <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-release-plugin</artifactId>
+	      <version>3.0.0</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
